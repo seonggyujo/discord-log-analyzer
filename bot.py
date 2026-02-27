@@ -7,7 +7,7 @@ import asyncio
 import discord  # type: ignore
 from discord.ext import commands  # type: ignore
 
-from core.config import DISCORD_TOKEN, OPENROUTER_API_KEY, logger
+from core.config import DISCORD_TOKEN, GROQ_API_KEY, logger
 
 # 봇 설정
 intents = discord.Intents.default()
@@ -42,8 +42,8 @@ async def main() -> None:
     if not DISCORD_TOKEN:
         logger.error("DISCORD_BOT_TOKEN이 설정되지 않았습니다.")
         return
-    if not OPENROUTER_API_KEY:
-        logger.error("OPENROUTER_API_KEY가 설정되지 않았습니다.")
+    if not GROQ_API_KEY:
+        logger.error("GROQ_API_KEY가 설정되지 않았습니다.")
         return
 
     async with bot:

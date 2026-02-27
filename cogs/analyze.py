@@ -10,7 +10,7 @@ import aiohttp  # type: ignore
 import discord  # type: ignore
 from discord.ext import commands, tasks  # type: ignore
 
-from core.api import OpenRouterClient
+from core.api import GroqClient
 from core.config import (
     ALLOWED_EXTENSIONS,
     COOLDOWN_SECONDS,
@@ -34,7 +34,7 @@ class AnalyzeCog(commands.Cog):
 
     def __init__(self, bot: commands.Bot) -> None:
         self.bot = bot
-        self.api = OpenRouterClient()
+        self.api = GroqClient()
         self.conversation_history: defaultdict[int, deque[dict[str, str]]] = (
             defaultdict(lambda: deque(maxlen=MAX_CONTEXT))
         )

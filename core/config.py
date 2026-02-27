@@ -12,21 +12,18 @@ load_dotenv()
 
 # 환경변수
 DISCORD_TOKEN: str | None = os.getenv("DISCORD_BOT_TOKEN")
-OPENROUTER_API_KEY: str | None = os.getenv("OPENROUTER_API_KEY")
+GROQ_API_KEY: str | None = os.getenv("GROQ_API_KEY")
 
 # API 설정
-OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
-MODEL = "qwen/qwen3-coder:free"
-
-# Fallback 모델 목록 (현재 무료 coder 모델이 하나뿐이라 비어 있음)
-FALLBACK_MODELS = []
+GROQ_API_URL = "https://api.groq.com/openai/v1/chat/completions"
+MODEL = "openai/gpt-oss-120b"
 
 # 봇 설정
 MAX_CONTEXT = 10
 COOLDOWN_SECONDS = 3
 MAX_MESSAGE_LENGTH = 2000
 MAX_RETRIES = 3
-API_TIMEOUT_SECONDS = 120  # Qwen3-Coder는 긴 응답 생성 가능
+API_TIMEOUT_SECONDS = 60
 MAX_ATTACHMENT_SIZE = 512 * 1024  # 첨부파일 최대 512KB
 ALLOWED_EXTENSIONS = {".log", ".txt", ".json", ".xml", ".csv", ".yaml", ".yml", ".ini", ".cfg", ".conf", ".py", ".js", ".ts", ".java", ".cpp", ".c", ".h", ".go", ".rs"}
 
