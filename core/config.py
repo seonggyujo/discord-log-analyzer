@@ -18,12 +18,8 @@ OPENROUTER_API_KEY: str | None = os.getenv("OPENROUTER_API_KEY")
 OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 MODEL = "qwen/qwen3-coder:free"
 
-# Fallback 모델 목록 (1순위가 rate limit 시 순서대로 시도)
-FALLBACK_MODELS = [
-    "deepseek/deepseek-chat-v3-0324:free",
-    "meta-llama/llama-3.3-70b-instruct:free",
-    "mistralai/mistral-small-3.1-24b-instruct:free",
-]
+# Fallback 모델 목록 (현재 무료 coder 모델이 하나뿐이라 비어 있음)
+FALLBACK_MODELS = []
 
 # 봇 설정
 MAX_CONTEXT = 10
