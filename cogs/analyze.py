@@ -250,6 +250,21 @@ class AnalyzeCog(commands.Cog):
             return
         await self.process_message(ctx.message, message)
 
+    @commands.command(name="chat", aliases=["채팅"])
+    async def chat_command(
+        self, ctx: commands.Context, *, message: str = ""
+    ) -> None:
+        """일반 채팅 명령어.
+
+        사용법:
+          !chat <메시지>
+          !채팅 <메시지>
+        """
+        if not message:
+            await ctx.reply("메시지를 입력해주세요! 예: `!chat 안녕하세요`")
+            return
+        await self.process_message(ctx.message, message)
+
     @commands.command(name="clear", aliases=["초기화"])
     async def clear_command(self, ctx: commands.Context) -> None:
         """현재 채널의 대화 기록을 초기화합니다."""
