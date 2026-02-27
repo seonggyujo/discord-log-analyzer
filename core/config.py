@@ -21,7 +21,8 @@ MODEL = "qwen/qwen3-coder:free"
 # Fallback 모델 목록 (1순위가 rate limit 시 순서대로 시도)
 FALLBACK_MODELS = [
     "deepseek/deepseek-chat-v3-0324:free",
-    "google/gemini-2.5-flash:free",
+    "meta-llama/llama-3.3-70b-instruct:free",
+    "mistralai/mistral-small-3.1-24b-instruct:free",
 ]
 
 # 봇 설정
