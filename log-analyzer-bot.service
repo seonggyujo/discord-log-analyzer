@@ -5,10 +5,11 @@ After=network.target
 [Service]
 Type=simple
 User=ubuntu
-WorkingDirectory=/home/ubuntu/log-analyzer-bot
-ExecStart=/usr/bin/python3 bot.py
+WorkingDirectory=/home/ubuntu/discord-log-analyzer
+ExecStart=/home/ubuntu/discord-log-analyzer/venv/bin/python bot.py
 Restart=always
 RestartSec=10
+Environment=PYTHONUNBUFFERED=1
 
 [Install]
 WantedBy=multi-user.target
