@@ -13,6 +13,8 @@ from discord.ext import commands, tasks  # type: ignore
 from core.api import GroqClient
 from core.config import (
     ALLOWED_EXTENSIONS,
+    BLOCKED_KEYWORDS,
+    BLOCKED_RESPONSE,
     COOLDOWN_SECONDS,
     MAX_ATTACHMENT_SIZE,
     MAX_CONTEXT,
@@ -160,6 +162,12 @@ class AnalyzeCog(commands.Cog):
                 "분석할 로그를 입력하거나 파일을 첨부해주세요!\n"
                 "예: `!analyze 에러 로그 내용` 또는 `.log` 파일 첨부"
             )
+            return
+
+        # 금지 키워드 필터링 (API 호출 전 차단)
+        content_lower = full_content.lower()
+        if any(kw in content_lower for kw in BLOCKED_KEYWORDS):
+            await message.reply(BLOCKED_RESPONSE)
             return
 
         # 컨텍스트에 메시지 추가
